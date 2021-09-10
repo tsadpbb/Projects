@@ -1,0 +1,28 @@
+Method                               ArrayList Runtime    LinkedList Runtime    Explanation
+
+boolean add(T element)               O(1)                 O(n)                  AL: Element is added at the end of the array and does not have to "walk" down the list to add the item.
+                                                                                LL: A while loop that jumps from node to node. It has to go through the entire list.
+boolean add(int index, T element)    O(n)                 O(n)                  AL: Adding element is O(1), but shifting the elements down the array is an O(n) operation that requires to move elements one-by-one down the array.
+                                                                                LL: A while loop that goes from node to node n number of times where n is the index.
+void clear()                         O(1)                 O(1)                  AL: Moving along elements in the array is not needed, simple assignment to a new empty array only.
+                                                                                LL: Simply resets values and makes head point to null.
+boolean contains(T element)          O(n)                 O(n)                  AL: Method needs a manual for loop search to check if the element is in the array, has to check one-by-one, quicker if isSorted is true due to stopping.
+                                                                                LL: Jumps from node to node until it reaches desired element or the end of the list.
+T get(int index)                     O(1)                 O(n)                  AL: Quick access to an element, immediate. No need to check other indexes, can go right to the desired index.
+                                                                                LL: n is the index, it jumps from node to node n number of times.
+int indexOf(T element)               O(n)                 O(n)                  AL: Method needs to manually search for the element, has to check array elements one-by-one, quicker if isSorted is true due to stopping.
+                                                                                LL: Goes from node to node until the correct element is found or it reaches the end of the list.
+boolean isEmpty()                    O(1)                 O(1)                  AL: Simple check for a member variable, no need to access array elements.
+                                                                                LL: Simply checks if head points to null.
+int lastIndexOf(T element)           O(n)                 O(n)                  AL: Method nees to manually walk down from the last items to the first, stopping when desired element is found, quicker if isSorted is true due to stopping.
+                                                                                LL: A for loop that goes from node to node until the end of the list.
+T set(int index, T element)          O(1)                 O(n)                  AL: Array goes right to the index and replaces value at site, no need to move/check any other elements.
+                                                                                LL: It must interate from node to node n number of times where n is the index.
+int size()                           O(1)                 O(1)                  AL: Simple check of a member variable, no access to array elements needed.
+                                                                                LL: Simply checks a member variable.
+void sort(boolean order)             O(n^2)               O(n^2)                AL: Insertion sort — has two for loops that each move along the array, one O(n) operation inside of another equals an O(n^2) operation.
+                                                                                LL: Bubble Sort: two for loops that both depend on the size of the list.
+boolean remove(T element)            O(n)                 O(n)                  AL: Removing an element causes other elements possibly needing to be moved down, so the process of moving those items is an O(n) operation, moves one-by-one.
+                                                                                LL: Goes from node to node until it reaches the corrent element or the end of the list. n is the size of the list.
+T remove(int index)                  O(n)                 O(n)                  AL: Again, removing an element causes other elements possibly needing to be moved down, so the process of moving those items is an O(n) operation, for loop walks down array.
+                                                                                LL: Goes from node to node n number of times where n is the index.
